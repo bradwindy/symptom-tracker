@@ -4,7 +4,7 @@ import os.log
 class SymptomViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
     
     //MARK: Properties
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var descTextField: UITextField!
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -18,16 +18,16 @@ class SymptomViewController: UIViewController, UITextFieldDelegate, UINavigation
         super.viewDidLoad()
         
         // Handle the text field’s user input through delegate callbacks.
-        nameTextField.delegate = self
+        descTextField.delegate = self
         
         // Set up views if editing an existing Symptom.
         if let symptom = symptom {
-            navigationItem.title = symptom.name
-            nameTextField.text = symptom.name
+            navigationItem.title = symptom.desc
+            descTextField.text = symptom.desc
             ratingControl.rating = symptom.rating
         }
         
-        // Enable the Save button only if the text field has a valid Symptom name.
+        // Enable the Save button only if the text field has a valid Symptom desc.
         updateSaveButtonState()
     }
     
@@ -77,11 +77,11 @@ class SymptomViewController: UIViewController, UITextFieldDelegate, UINavigation
             return
         }
         
-        let name = nameTextField.text ?? ""
+        let desc = descTextField.text ?? ""
         let rating = ratingControl.rating
         
         // Set the symptom to be passed to SymptomTableViewController after the unwind segue.
-        symptom = Symptom(name: name, rating: rating)
+        symptom = Symptom(desc: desc, rating: rating)
     }
     
     
@@ -89,7 +89,7 @@ class SymptomViewController: UIViewController, UITextFieldDelegate, UINavigation
     
     private func updateSaveButtonState() {
         // Disable the Save button if the text field is empty.
-        let text = nameTextField.text ?? ""
+        let text = descTextField.text ?? ""
         saveButton.isEnabled = !text.isEmpty
     }
     

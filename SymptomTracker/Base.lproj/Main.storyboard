@@ -25,7 +25,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bae-2p-rdI">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bae-2p-rdI" userLabel="Desc Label">
                                             <rect key="frame" x="8" y="8" width="359" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -45,7 +45,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nameLabel" destination="bae-2p-rdI" id="g1D-Rd-ym8"/>
+                                    <outlet property="descLabel" destination="bae-2p-rdI" id="suv-44-bBY"/>
                                     <outlet property="ratingControl" destination="ami-MF-hae" id="KXb-iU-mNl"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="OYG-Wr-wrS"/>
                                 </connections>
@@ -107,12 +107,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2cd-wZ-Gpp" firstAttribute="top" secondItem="FHF-zl-xOP" secondAttribute="bottom" constant="7" id="EuE-5a-hQl"/>
-                            <constraint firstItem="FHF-zl-xOP" firstAttribute="leading" secondItem="2cd-wZ-Gpp" secondAttribute="leading" id="PuI-du-NOj"/>
+                            <constraint firstItem="FHF-zl-xOP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="5tr-o5-QZJ"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FHF-zl-xOP" secondAttribute="trailing" constant="20" symbolic="YES" id="Cgk-EL-dd0"/>
+                            <constraint firstItem="FHF-zl-xOP" firstAttribute="leading" secondItem="2cd-wZ-Gpp" secondAttribute="leading" id="LgW-wf-UT3"/>
                             <constraint firstItem="2cd-wZ-Gpp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ViQ-gJ-E5g"/>
-                            <constraint firstItem="FHF-zl-xOP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="f7M-nH-Pvg"/>
+                            <constraint firstItem="2cd-wZ-Gpp" firstAttribute="top" secondItem="FHF-zl-xOP" secondAttribute="bottom" constant="7" id="fYb-FR-pLU"/>
                             <constraint firstItem="2cd-wZ-Gpp" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="h9J-sl-UpB"/>
-                            <constraint firstItem="FHF-zl-xOP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="m3g-hh-794"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Symptom" id="lPO-Rb-aqa">
@@ -128,18 +128,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="nameTextField" destination="Cqs-Vk-0lJ" id="k1B-cu-2dt"/>
+                        <outlet property="descTextField" destination="Cqs-Vk-0lJ" id="pkB-Wa-DCr"/>
                         <outlet property="ratingControl" destination="t56-bQ-7Yp" id="GPw-4O-On7"/>
                         <outlet property="saveButton" destination="Jw0-Vp-23G" id="UqB-cu-Urn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="pAa-iy-mNE" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="6zR-HY-Zef">
-                    <connections>
-                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="OAW-KQ-TMo"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="6zR-HY-Zef"/>
             </objects>
             <point key="canvasLocation" x="2018.4000000000001" y="137.18140929535232"/>
         </scene>

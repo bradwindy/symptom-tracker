@@ -50,7 +50,7 @@ class SymptomTableViewController: UITableViewController {
         // Fetches the appropriate symptom for the data source layout.
         let symptom = symptoms[indexPath.row]
         
-        cell.nameLabel.text = symptom.name
+        cell.descLabel.text = symptom.desc
         cell.ratingControl.rating = symptom.rating
         
         return cell
@@ -139,15 +139,15 @@ class SymptomTableViewController: UITableViewController {
     private func loadSampleSymptoms() {
         
 
-        guard let symptom1 = Symptom(name: "Caprese Salad", rating: 4) else {
+        guard let symptom1 = Symptom(desc: "Nausea", rating: 4) else {
             fatalError("Unable to instantiate symptom1")
         }
 
-        guard let symptom2 = Symptom(name: "Chicken and Potatoes", rating: 5) else {
+        guard let symptom2 = Symptom(desc: "Vomiting", rating: 2) else {
             fatalError("Unable to instantiate symptom2")
         }
 
-        guard let symptom3 = Symptom(name: "Pasta with Meatballs", rating: 3) else {
+        guard let symptom3 = Symptom(desc: "Aching", rating: 5) else {
             fatalError("Unable to instantiate symptom2")
         }
 

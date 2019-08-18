@@ -3,7 +3,7 @@ import UIKit
 class SymptomTableViewCell: UITableViewCell {
     
     //MARK: Properties
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var ratingControl: RatingControl!
 
     override func awakeFromNib() {

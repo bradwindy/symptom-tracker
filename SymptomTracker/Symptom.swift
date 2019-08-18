@@ -5,7 +5,7 @@ import os.log
 class Symptom: NSObject, NSCoding {
     
     //MARK: Properties
-    var name: String
+    var desc: String
     var rating: Int
     
     //MARK: Archiving Paths
@@ -15,15 +15,15 @@ class Symptom: NSObject, NSCoding {
     //MARK: Types
     
     struct PropertyKey {
-        static let name = "name"
+        static let desc = "desc"
         static let rating = "rating"
     }
     
     //MARK: Initialization
-    init?(name: String, rating: Int) {
+    init?(desc: String, rating: Int) {
         
-        // The name must not be empty
-        guard !name.isEmpty else {
+        // The desc must not be empty
+        guard !desc.isEmpty else {
             return nil
         }
 
@@ -32,13 +32,13 @@ class Symptom: NSObject, NSCoding {
             return nil
         }
         
-        // Initialization should fail if there is no name or if the rating is negative.
-        if name.isEmpty || rating < 0  {
+        // Initialization should fail if there is no desc or if the rating is negative.
+        if desc.isEmpty || rating < 0  {
             return nil
         }
         
         // Initialize stored properties.
-        self.name = name
+        self.desc = desc
         self.rating = rating
         
     }
@@ -46,22 +46,22 @@ class Symptom: NSObject, NSCoding {
     //MARK: NSCoding
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(name, forKey: PropertyKey.name)
+        aCoder.encode(desc, forKey: PropertyKey.desc)
         aCoder.encode(rating, forKey: PropertyKey.rating)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         
-        // The name is required. If we cannot decode a name string, the initializer should fail.
-        guard let name = aDecoder.decodeObject(forKey: PropertyKey.name) as? String else {
-            os_log("Unable to decode the name for a Symptom object.", log: OSLog.default, type: .debug)
+        // The desc is required. If we cannot decode a desc string, the initializer should fail.
+        guard let desc = aDecoder.decodeObject(forKey: PropertyKey.desc) as? String else {
+            os_log("Unable to decode the desc for a Symptom object.", log: OSLog.default, type: .debug)
             return nil
         }
         
         let rating = aDecoder.decodeInteger(forKey: PropertyKey.rating)
         
         // Must call designated initializer.
-        self.init(name: name, rating: rating)
+        self.init(desc: desc, rating: rating)
         
     }
 }
